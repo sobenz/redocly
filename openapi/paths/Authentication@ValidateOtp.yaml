@@ -1,0 +1,35 @@
+post:
+  tags:
+    - Consumer Authentication
+  description: >-
+    Validates the OTP token for a consumer. For more indepth documentation read
+    the guide on [OTP Validation](/howto/otp-validation)
+  summary: Validates Otp of Consumer.
+  operationId: ValidateOtpAsync
+  consumes: []
+  produces:
+    - text/plain
+    - application/json
+    - text/json
+  parameters:
+    - name: otp
+      in: query
+      required: false
+      type: string
+  responses:
+    '200':
+      description: Success
+      schema:
+        type: boolean
+    '400':
+      description: Bad Request
+      schema:
+        $ref: '#/definitions/ProblemDetails'
+    '401':
+      description: Unauthorized
+      schema:
+        $ref: '#/definitions/ProblemDetails'
+    '403':
+      description: Forbidden
+      schema:
+        $ref: '#/definitions/ProblemDetails'
