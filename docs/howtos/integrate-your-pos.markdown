@@ -17,7 +17,7 @@ Glympse application provides a way to send and view Glympses using Android inten
 |04/01/2014|1.1|Return URIs can be specified instead of intent callbacks.|  
 
 ## Sending
-![app to app](/images/app_to_app.png "App to App")
+![app to app](../../images/app_to_app.png "App to App")
 
 ### Action
 com.glympse.android.intent.CREATE
