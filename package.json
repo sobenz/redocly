@@ -5,7 +5,7 @@
   "description": "Redocly portal template repository",
   "license": "MIT",
   "scripts": {
-    "start": "redocly-portal develop -p 3000",
+    "start": "redocly-portal develop -p 4050",
     "build": "redocly-portal build",
     "clean": "redocly-portal clean"
   },

@@ -6,6 +6,7 @@ headerIcon: ./images/logo.png
 enableToc: true
 oasDefinitions:
   petstore: ./openapi/petstore.yaml
+  authorization: ./openapi/authorization.yaml
   # add links to definitions in our API registry by using a fully qualified URL.
 stylesheets:
   - https://fonts.googleapis.com/css?family=Roboto:300,400,600,700
