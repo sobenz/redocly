@@ -5,7 +5,7 @@ info:
   description: Provides means for consumers api and SDK to get authorization.
   contact:
     name: Plexure Support
-    url: 'https://support.plexure.com'
+    url: https://support.plexure.com
     email: support@plexure.com
 paths:
   /Authentication/ConsumerAuthentication:
@@ -14,654 +14,1036 @@ paths:
         - Consumer Authentication
       summary: Returns the authentication record of the consumer.
       operationId: GetConsumerAuthenticationAsync
-      consumes: []
-      produces:
-        - text/plain
-        - application/json
-        - text/json
       parameters:
         - name: consumerId
           in: query
           description: Unique Id of the Consumer
           required: false
-          type: string
-          format: uuid
+          schema:
+            type: string
+            format: uuid
       responses:
-        '200':
+        "200":
           description: Success
-          schema:
-            $ref: '#/definitions/ConsumerAuthentication'
-        '400':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ConsumerAuthentication"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ConsumerAuthentication"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ConsumerAuthentication"
+        "400":
           description: Bad Request
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '401':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "401":
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '403':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "403":
           description: Forbidden
-          schema:
-            $ref: '#/definitions/ProblemDetails'
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
   /Authentication/ValidateOtp:
     post:
       tags:
         - Consumer Authentication
-      description: 'Validates the OTP token for a consumer. For more indepth documentation read the guide on [OTP Validation](/howto/otp-validation)'
+      description: Validates the OTP token for a consumer. For more indepth documentation
+        read the guide on [OTP Validation](/howto/otp-validation)
       summary: Validates Otp of Consumer.
       operationId: ValidateOtpAsync
-      consumes: []
-      produces:
-        - text/plain
-        - application/json
-        - text/json
       parameters:
         - name: otp
           in: query
           required: false
-          type: string
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           description: Success
-          schema:
-            type: boolean
-        '400':
+          content:
+            text/plain:
+              schema:
+                type: boolean
+            application/json:
+              schema:
+                type: boolean
+            text/json:
+              schema:
+                type: boolean
+        "400":
           description: Bad Request
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '401':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "401":
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '403':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "403":
           description: Forbidden
-          schema:
-            $ref: '#/definitions/ProblemDetails'
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
   /Authorization/ServiceTokens:
     get:
       tags:
         - Consumer Authorization
       summary: Creates a Service Tokens
       operationId: GetServiceTokensAsync
-      consumes: []
-      produces:
-        - text/plain
-        - application/json
-        - text/json
       parameters:
         - name: tenantId
           in: query
           description: Id of tenant
           required: false
-          type: string
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           description: Success
-          schema:
-            $ref: '#/definitions/JwtTokenPair'
-        '400':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+        "400":
           description: Bad Request
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '401':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "401":
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '403':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "403":
           description: Forbidden
-          schema:
-            $ref: '#/definitions/ProblemDetails'
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
   /Authorization/ConsumerTokens:
     post:
       tags:
         - Consumer Authorization
       summary: Creates both the Refresh Token and Access Token of type Consumer
       operationId: CreateConsumerTokensAsync
-      consumes:
-        - application/json-patch+json
-        - application/json
-        - text/json
-        - application/*+json
-      produces:
-        - text/plain
-        - application/json
-        - text/json
-      parameters:
-        - name: consumerTokenParameter
-          in: body
-          description: ConsumerTokenParameter representing the required parameters
-          required: false
-          schema:
-            $ref: '#/definitions/ConsumerTokenParameter'
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: "#/components/schemas/ConsumerTokenParameter"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ConsumerTokenParameter"
+          text/json:
+            schema:
+              $ref: "#/components/schemas/ConsumerTokenParameter"
+          application/*+json:
+            schema:
+              $ref: "#/components/schemas/ConsumerTokenParameter"
+        description: ConsumerTokenParameter representing the required parameters
       responses:
-        '200':
+        "200":
           description: Success
-          schema:
-            $ref: '#/definitions/JwtTokenPair'
-        '400':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+        "400":
           description: Bad Request
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '401':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "401":
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '403':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "403":
           description: Forbidden
-          schema:
-            $ref: '#/definitions/ProblemDetails'
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
   /Authorization/ConsumerMfaTokens:
     post:
       tags:
         - Consumer Authorization
       summary: Creates both the Refresh Token and Access Token of type Consumer MFA
       operationId: CreateConsumerMfaTokensAsync
-      consumes:
-        - application/json-patch+json
-        - application/json
-        - text/json
-        - application/*+json
-      produces:
-        - text/plain
-        - application/json
-        - text/json
-      parameters:
-        - name: consumerMfaTokenParameter
-          in: body
-          description: 'ConsumerMfaTokenParameter representing the required parameters (DeviceId, TenantId, ConsumerId)'
-          required: false
-          schema:
-            $ref: '#/definitions/ConsumerMfaTokenParameter'
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: "#/components/schemas/ConsumerMfaTokenParameter"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ConsumerMfaTokenParameter"
+          text/json:
+            schema:
+              $ref: "#/components/schemas/ConsumerMfaTokenParameter"
+          application/*+json:
+            schema:
+              $ref: "#/components/schemas/ConsumerMfaTokenParameter"
+        description: ConsumerMfaTokenParameter representing the required parameters
+          (DeviceId, TenantId, ConsumerId)
       responses:
-        '200':
+        "200":
           description: Success
-          schema:
-            $ref: '#/definitions/JwtTokenPair'
-        '400':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+        "400":
           description: Bad Request
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '401':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "401":
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '403':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "403":
           description: Forbidden
-          schema:
-            $ref: '#/definitions/ProblemDetails'
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
   /Authorization/DeviceTokens:
     post:
       tags:
         - Consumer Authorization
       summary: Creates both the Refresh Token and Access Token of type Device
       operationId: CreateDeviceTokensAsync
-      consumes:
-        - application/json-patch+json
-        - application/json
-        - text/json
-        - application/*+json
-      produces:
-        - text/plain
-        - application/json
-        - text/json
-      parameters:
-        - name: deviceTokenParameter
-          in: body
-          description: DeviceTokenParameter representing the required parameters
-          required: false
-          schema:
-            $ref: '#/definitions/DeviceTokenParameter'
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: "#/components/schemas/DeviceTokenParameter"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeviceTokenParameter"
+          text/json:
+            schema:
+              $ref: "#/components/schemas/DeviceTokenParameter"
+          application/*+json:
+            schema:
+              $ref: "#/components/schemas/DeviceTokenParameter"
+        description: DeviceTokenParameter representing the required parameters
       responses:
-        '200':
+        "200":
           description: Success
-          schema:
-            $ref: '#/definitions/JwtTokenPair'
-        '400':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+        "400":
           description: Bad Request
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '401':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "401":
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '403':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "403":
           description: Forbidden
-          schema:
-            $ref: '#/definitions/ProblemDetails'
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
   /Authorization/MerchantTokens:
     post:
       tags:
         - Consumer Authorization
       summary: Creates both the Refresh Token and Access Token of type Merchant
       operationId: CreateMerchantTokensAsync
-      consumes:
-        - application/json-patch+json
-        - application/json
-        - text/json
-        - application/*+json
-      produces:
-        - text/plain
-        - application/json
-        - text/json
-      parameters:
-        - name: merchantTokenParameter
-          in: body
-          description: MerchantTokenParameter representing the required parameters
-          required: false
-          schema:
-            $ref: '#/definitions/MerchantTokenParameter'
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: "#/components/schemas/MerchantTokenParameter"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MerchantTokenParameter"
+          text/json:
+            schema:
+              $ref: "#/components/schemas/MerchantTokenParameter"
+          application/*+json:
+            schema:
+              $ref: "#/components/schemas/MerchantTokenParameter"
+        description: MerchantTokenParameter representing the required parameters
       responses:
-        '200':
+        "200":
           description: Success
-          schema:
-            $ref: '#/definitions/JwtTokenPair'
-        '400':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+        "400":
           description: Bad Request
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '401':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "401":
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '403':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "403":
           description: Forbidden
-          schema:
-            $ref: '#/definitions/ProblemDetails'
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
   /Authorization/ActivityTokens:
     get:
       tags:
         - Consumer Authorization
       summary: Creates both the Refresh Token and Access Token of type Activity
       operationId: CreateActivityTokensAsync
-      consumes: []
-      produces:
-        - text/plain
-        - application/json
-        - text/json
-      parameters: []
       responses:
-        '200':
+        "200":
           description: Success
-          schema:
-            $ref: '#/definitions/JwtTokenPair'
-        '400':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+        "400":
           description: Bad Request
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '401':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "401":
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '403':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "403":
           description: Forbidden
-          schema:
-            $ref: '#/definitions/ProblemDetails'
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
   /Authorization/ActivityTokens/external:
     post:
       tags:
         - Consumer Authorization
-      summary: Creates both the Refresh Token and Access Token of type Activity internally
+      summary: Creates both the Refresh Token and Access Token of type Activity
+        internally
       operationId: CreateExternalActivityTokensAsync
-      consumes:
-        - application/json-patch+json
-        - application/json
-        - text/json
-        - application/*+json
-      produces:
-        - text/plain
-        - application/json
-        - text/json
-      parameters:
-        - name: consumerActivityTokenParameter
-          in: body
-          required: false
-          schema:
-            $ref: '#/definitions/ConsumerActivityTokenParameter'
+      requestBody:
+        $ref: "#/components/requestBodies/ConsumerActivityTokenParameter"
       responses:
-        '200':
+        "200":
           description: Success
-          schema:
-            $ref: '#/definitions/JwtTokenPair'
-        '400':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+        "400":
           description: Bad Request
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '401':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "401":
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '403':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "403":
           description: Forbidden
-          schema:
-            $ref: '#/definitions/ProblemDetails'
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
   /Authorization/ActivityTokens/internal:
     post:
       tags:
         - Consumer Authorization
-      summary: Creates both the Refresh Token and Access Token of type Activity internally
+      summary: Creates both the Refresh Token and Access Token of type Activity
+        internally
       operationId: CreateInternalActivityTokensAsync
-      consumes:
-        - application/json-patch+json
-        - application/json
-        - text/json
-        - application/*+json
-      produces:
-        - text/plain
-        - application/json
-        - text/json
-      parameters:
-        - name: consumerActivityTokenParameter
-          in: body
-          required: false
-          schema:
-            $ref: '#/definitions/ConsumerActivityTokenParameter'
+      requestBody:
+        $ref: "#/components/requestBodies/ConsumerActivityTokenParameter"
       responses:
-        '200':
+        "200":
           description: Success
-          schema:
-            $ref: '#/definitions/JwtTokenPair'
-        '400':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+        "400":
           description: Bad Request
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '401':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "401":
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '403':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "403":
           description: Forbidden
-          schema:
-            $ref: '#/definitions/ProblemDetails'
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
   /Authorization/AccessToken:
     get:
       tags:
         - Consumer Authorization
       summary: Creates an Access Token from a Refresh Token.
       operationId: GetAccessTokenAsync
-      consumes: []
-      produces:
-        - text/plain
-        - application/json
-        - text/json
       parameters:
         - name: refreshToken
           in: header
           description: This is the JWT Refresh Token
           required: false
-          type: string
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           description: Success
-          schema:
-            $ref: '#/definitions/JwtTokenPair'
-        '400':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/JwtTokenPair"
+        "400":
           description: Bad Request
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '401':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "401":
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/ProblemDetails'
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
   /Tools/ValidateAccessTokens:
     get:
       tags:
         - Tools
       summary: Validate a token
       operationId: ValidateAccessTokens
-      consumes: []
-      produces:
-        - text/plain
-        - application/json
-        - text/json
       parameters:
         - name: accessToken
           in: query
-          description: ''
+          description: ""
           required: false
-          type: string
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           description: Success
-          schema:
-            uniqueItems: false
-            type: array
-            items:
-              $ref: '#/definitions/ValueTuple[String,String]'
-        '400':
+          content:
+            text/plain:
+              schema:
+                uniqueItems: false
+                type: array
+                items:
+                  $ref: "#/components/schemas/ValueTuple_String_String_"
+            application/json:
+              schema:
+                uniqueItems: false
+                type: array
+                items:
+                  $ref: "#/components/schemas/ValueTuple_String_String_"
+            text/json:
+              schema:
+                uniqueItems: false
+                type: array
+                items:
+                  $ref: "#/components/schemas/ValueTuple_String_String_"
+        "400":
           description: Bad Request
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '401':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "401":
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/ProblemDetails'
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
   /Tools/GetTenantConfig:
     get:
       tags:
         - Tools
       summary: get tenant configuration
       operationId: GetConfig
-      consumes: []
-      produces:
-        - text/plain
-        - application/json
-        - text/json
       parameters:
         - name: tenantId
           in: query
-          description: ''
+          description: ""
           required: false
-          type: string
+          schema:
+            type: string
       responses:
-        '200':
+        "200":
           description: Success
-          schema:
-            $ref: '#/definitions/AuthorizationTenantConfiguration'
-        '400':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/AuthorizationTenantConfiguration"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthorizationTenantConfiguration"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/AuthorizationTenantConfiguration"
+        "400":
           description: Bad Request
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '401':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "401":
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/ProblemDetails'
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
   /Tools/SetTenantConfig:
     post:
       tags:
         - Tools
       summary: set tenant configuration
       operationId: SetConfig
-      consumes:
-        - application/json-patch+json
-        - application/json
-        - text/json
-        - application/*+json
-      produces:
-        - text/plain
-        - application/json
-        - text/json
       parameters:
         - name: tenantId
           in: query
-          description: ''
-          required: false
-          type: string
-        - name: authorizationTenantConfiguration
-          in: body
-          description: ''
+          description: ""
           required: false
           schema:
-            $ref: '#/definitions/AuthorizationTenantConfiguration'
+            type: string
+      requestBody:
+        content:
+          application/json-patch+json:
+            schema:
+              $ref: "#/components/schemas/AuthorizationTenantConfiguration"
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AuthorizationTenantConfiguration"
+          text/json:
+            schema:
+              $ref: "#/components/schemas/AuthorizationTenantConfiguration"
+          application/*+json:
+            schema:
+              $ref: "#/components/schemas/AuthorizationTenantConfiguration"
       responses:
-        '200':
+        "200":
           description: Success
-          schema:
-            $ref: '#/definitions/AuthorizationTenantConfiguration'
-        '400':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/AuthorizationTenantConfiguration"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AuthorizationTenantConfiguration"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/AuthorizationTenantConfiguration"
+        "400":
           description: Bad Request
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-        '401':
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+        "401":
           description: Unauthorized
-          schema:
-            $ref: '#/definitions/ProblemDetails'
-definitions:
-  ConsumerAuthentication:
-    type: object
-    properties:
-      partitionKey:
-        type: string
-        readOnly: true
-      id:
-        format: uuid
-        type: string
-      deactivatedDate:
-        format: date-time
-        type: string
-      mfaDetails:
-        $ref: '#/definitions/ConsumerAuthenticationMfaDetails'
-      status:
-        type: string
-  ConsumerAuthenticationMfaDetails:
-    type: object
-    properties:
-      channel:
-        enum:
-          - email
-        type: string
-      identifier:
-        type: string
-      unusedOTPCount:
-        format: int32
-        type: integer
-      invalidOtpCount:
-        format: int32
-        type: integer
-      lastInvalidDatetime:
-        format: date-time
-        type: string
-      lastSuccessfulDateTime:
-        format: date-time
-        type: string
-  ProblemDetails:
-    type: object
-    properties:
-      type:
-        type: string
-      title:
-        type: string
-      status:
-        format: int32
-        type: integer
-      detail:
-        type: string
-      instance:
-        type: string
-    additionalProperties:
-      type: object
-  JwtTokenPair:
-    type: object
-    properties:
-      jwtAccessToken:
-        type: string
-      jwtRefreshToken:
-        type: string
-      token_type:
-        type: string
-        readOnly: true
-  ConsumerTokenParameter:
-    type: object
-    properties:
-      deviceId:
-        type: string
-      consumerId:
-        type: string
-      status:
-        type: string
-      impersonatedBy:
-        type: string
-      tenantId:
-        type: string
-  ConsumerMfaTokenParameter:
-    type: object
-    properties:
-      deviceId:
-        type: string
-      consumerId:
-        type: string
-      tenantId:
-        type: string
-  DeviceTokenParameter:
-    type: object
-    properties:
-      deviceId:
-        type: string
-      consumerId:
-        type: string
-      status:
-        type: string
-      marketId:
-        format: int32
-        type: integer
-      tenantId:
-        type: string
-  MerchantTokenParameter:
-    type: object
-    properties:
-      tenantId:
-        type: string
-  ConsumerActivityTokenParameter:
-    type: object
-    properties:
-      gender:
-        type: string
-      dateOfBirth:
-        format: date-time
-        type: string
-      deviceId:
-        type: string
-      consumerId:
-        type: string
-      status:
-        type: string
-      impersonatedBy:
-        type: string
-      tenantId:
-        type: string
-  'ValueTuple[String,String]':
-    type: object
-    properties:
-      item1:
-        type: string
-      item2:
-        type: string
-  AuthorizationTenantConfiguration:
-    type: object
-    properties:
-      consumerTokenExpiration:
-        $ref: '#/definitions/TokenExpiration'
-      merchantTokenExpiration:
-        $ref: '#/definitions/TokenExpiration'
-      activityTokenExpiration:
-        $ref: '#/definitions/TokenExpiration'
-      serviceTokenExpiration:
-        $ref: '#/definitions/TokenExpiration'
-      deviceTokenExpiration:
-        $ref: '#/definitions/TokenExpiration'
-  TokenExpiration:
-    type: object
-    properties:
-      accessTokenExpiration:
-        format: int64
-        type: integer
-      refreshTokenExpiration:
-        format: int64
-        type: integer
-securityDefinitions:
-  Bearer:
-    name: Authorization
-    in: header
-    type: apiKey
-    description: Please insert JWT with Bearer into field
+          content:
+            text/plain:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
+            text/json:
+              schema:
+                $ref: "#/components/schemas/ProblemDetails"
 security:
   - Bearer: []
+components:
+  requestBodies:
+    ConsumerActivityTokenParameter:
+      content:
+        application/json-patch+json:
+          schema:
+            $ref: "#/components/schemas/ConsumerActivityTokenParameter"
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ConsumerActivityTokenParameter"
+        text/json:
+          schema:
+            $ref: "#/components/schemas/ConsumerActivityTokenParameter"
+        application/*+json:
+          schema:
+            $ref: "#/components/schemas/ConsumerActivityTokenParameter"
+  securitySchemes:
+    Bearer:
+      name: Authorization
+      in: header
+      type: apiKey
+      description: Please insert JWT with Bearer into field
+  schemas:
+    ConsumerAuthentication:
+      type: object
+      properties:
+        partitionKey:
+          type: string
+          readOnly: true
+        id:
+          format: uuid
+          type: string
+        deactivatedDate:
+          format: date-time
+          type: string
+        mfaDetails:
+          $ref: "#/components/schemas/ConsumerAuthenticationMfaDetails"
+        status:
+          type: string
+    ConsumerAuthenticationMfaDetails:
+      type: object
+      properties:
+        channel:
+          enum:
+            - email
+          type: string
+        identifier:
+          type: string
+        unusedOTPCount:
+          format: int32
+          type: integer
+        invalidOtpCount:
+          format: int32
+          type: integer
+        lastInvalidDatetime:
+          format: date-time
+          type: string
+        lastSuccessfulDateTime:
+          format: date-time
+          type: string
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          type: string
+        title:
+          type: string
+        status:
+          format: int32
+          type: integer
+        detail:
+          type: string
+        instance:
+          type: string
+      additionalProperties:
+        type: object
+    JwtTokenPair:
+      type: object
+      properties:
+        jwtAccessToken:
+          type: string
+        jwtRefreshToken:
+          type: string
+        token_type:
+          type: string
+          readOnly: true
+    ConsumerTokenParameter:
+      type: object
+      properties:
+        deviceId:
+          type: string
+        consumerId:
+          type: string
+        status:
+          type: string
+        impersonatedBy:
+          type: string
+        tenantId:
+          type: string
+    ConsumerMfaTokenParameter:
+      type: object
+      properties:
+        deviceId:
+          type: string
+        consumerId:
+          type: string
+        tenantId:
+          type: string
+    DeviceTokenParameter:
+      type: object
+      properties:
+        deviceId:
+          type: string
+        consumerId:
+          type: string
+        status:
+          type: string
+        marketId:
+          format: int32
+          type: integer
+        tenantId:
+          type: string
+    MerchantTokenParameter:
+      type: object
+      properties:
+        tenantId:
+          type: string
+    ConsumerActivityTokenParameter:
+      type: object
+      properties:
+        gender:
+          type: string
+        dateOfBirth:
+          format: date-time
+          type: string
+        deviceId:
+          type: string
+        consumerId:
+          type: string
+        status:
+          type: string
+        impersonatedBy:
+          type: string
+        tenantId:
+          type: string
+    AuthorizationTenantConfiguration:
+      type: object
+      properties:
+        consumerTokenExpiration:
+          $ref: "#/components/schemas/TokenExpiration"
+        merchantTokenExpiration:
+          $ref: "#/components/schemas/TokenExpiration"
+        activityTokenExpiration:
+          $ref: "#/components/schemas/TokenExpiration"
+        serviceTokenExpiration:
+          $ref: "#/components/schemas/TokenExpiration"
+        deviceTokenExpiration:
+          $ref: "#/components/schemas/TokenExpiration"
+    TokenExpiration:
+      type: object
+      properties:
+        accessTokenExpiration:
+          format: int64
+          type: integer
+        refreshTokenExpiration:
+          format: int64
+          type: integer
+    ValueTuple_String_String_:
+      type: object
+      properties:
+        item1:
+          type: string
+        item2:
+          type: string
