@@ -38,6 +38,47 @@ training:
         page: developer-portal/mdx.mdx
       - label: Creating React components
         page: developer-portal/custom-component.mdx
+  - group: Authorization Guide
+    expanded: false
+    pages:
+      - label: Auth Guides
+        page: docs/index.markdown
+      - separator: This is a separator
+      - group: Guides
+        expanded: false
+        pages:
+          - group: Tutorials
+            expanded: false
+            pages:
+              - label: Account Linking
+                page: docs/guides/tutorials/account-linking.markdown
+              - label: Private Groups
+                page: docs/guides/tutorials/private-groups.markdown
+          - group: Location Sharing
+            expanded: false
+            pages:
+              - label: Sharing Guide
+                page: docs/guides/location-sharing/sharing-guide.markdown
+              - label: Viewing Guide
+                page: docs/guides/location-sharing/viewing-guide.markdown
+          - group: Push
+            expanded: false
+            pages:
+              - label: Http Push
+                page: docs/guides/push/http-push.markdown
+              - label: Event Notifications
+                page: docs/guides/push/event-notifications.markdown
+      - group: How To
+        expanded: false
+        pages:
+          - label: How to integrate your POS
+            page: docs/howtos/integrate-your-pos.markdown
+          - label: OTP Validation
+            page: docs/howtos/otp-validation.markdown
+  - group: Authorization Reference
+    expanded: false
+    pages:
+      - page: openapi/auth-reference.page.yaml/*
   - group: Petstore reference
     expanded: false
     pages:

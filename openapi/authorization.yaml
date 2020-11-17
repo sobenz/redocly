@@ -76,7 +76,7 @@ paths:
       tags:
         - Consumer Authentication
       description: Validates the OTP token for a consumer. For more indepth documentation
-        read the guide on [OTP Validation](/howto/otp-validation)
+        read the guide on [OTP Validation](/docs/howtos/otp-validation)
       summary: Validates Otp of Consumer.
       operationId: ValidateOtpAsync
       parameters:
